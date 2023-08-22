@@ -1,0 +1,17 @@
+gui:
+  sidePanelWidth: 0.2
+  showRandomTip: false
+  nerdFontsVersion: "3"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+keybinding:
+  universal:
+    prevBlock-alt: '<c-k>'
+    nextBlock-alt: '<c-j>'
+    scrollUpMain-alt1: null
+    scrollDownMain-alt1: null
+  commits:
+    moveDownCommit: 'J'
+    moveUpCommit: 'K'
