@@ -12,6 +12,7 @@ if status is-interactive
     abbr --add v nvim
     abbr --add update ~/.update.fish
     abbr --add lg lazygit
+    abbr --add cm chezmoi
 
     #------------------#
     #-----ALIASES------#
@@ -64,6 +65,8 @@ if status is-interactive
     #Vi bindings aren't that great, but keeping them on for now
     fish_vi_key_bindings
 
+    #turn off default greetings
+    set -g fish_greeting
     #always show full path, doesn't really matter besides terminal title
     set -g fish_prompt_pwd_dir_length 0
 
