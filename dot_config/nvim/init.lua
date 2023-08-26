@@ -134,8 +134,8 @@ vim.keymap.set('n', '<A-Down>', '<C-w>J')
 vim.keymap.set('n', '<A-Up>', '<C-w>K')
 vim.keymap.set('n', '<A-Right>', '<C-w>L')
 
---set windows to equal size with <C-=>
-vim.keymap.set('n', '<C-=>', '<C-w>=')
+--set windows to equal size with <A-=>
+vim.keymap.set('n', '<A-=>', '<C-w>=')
 
 --paste last yanked with <spc>p, last yanked can always be found in register 0
 vim.keymap.set({'n', 'v'}, '<leader>p', '"0p',
