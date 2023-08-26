@@ -70,6 +70,12 @@ if status is-interactive
         brightnessctl -d intel_backlight set $argv
     end
 
+    #prints battery percentage
+    #requires ripgrep (grep works but need to change)
+    function batt
+        upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg percentage
+    end
+
     #------------------#
     #-----SETTINGS-----#
     #------------------#
