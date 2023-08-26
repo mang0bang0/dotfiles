@@ -14,6 +14,7 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add cm chezmoi
 
+
     #------------------#
     #-----ALIASES------#
     #------------------#
@@ -57,6 +58,16 @@ if status is-interactive
     ##--log-fd=1 pipes the output that's usually stderr to stdout
     function vg
         valgrind --log-fd=1 $argv | nvim -R
+    end
+
+    function shutdown
+        systemctl poweroff
+    end
+
+    #change the screen brightness with brightnessctl
+    #requires the package brightnessctl
+    function brightness
+        brightnessctl -d intel_backlight set $argv
     end
 
     #------------------#
