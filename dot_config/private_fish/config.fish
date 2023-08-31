@@ -13,6 +13,7 @@ if status is-interactive
     abbr --add update ~/.update.fish
     abbr --add lg lazygit
     abbr --add cm chezmoi
+    abbr --add ide flatpak run com.st.STM32CubeIDE
 
 
     #------------------#
