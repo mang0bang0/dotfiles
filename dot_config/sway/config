@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# Solve issue of GTK apps taking forever to start
+exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
