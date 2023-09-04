@@ -22,17 +22,17 @@ if status is-interactive
     #exa instead of ls
     #ls = exa show icons, long, classify, directories first, git
     function ls
-        exa -l -F --git --icons --group-directories-first -h $argv
+        exa --long --classify --git --icons --group-directories-first --header $argv
     end
 
     #la adds hidden files
     function la
-        exa -l -F --icons --group-directories-first -h -a $argv
+        exa --long --classify --icons --group-directories-first --header --all $argv
     end
 
     #lt lists in tree view
     function lt
-        exa -T --icons --level=3 -l -h $argv
+        exa --tree --icons --level=3 --long --header --all $argv
     end
 
     #function to make a directory and go in there
@@ -63,6 +63,10 @@ if status is-interactive
 
     function shutdown
         systemctl poweroff
+    end
+
+    function reboot
+        systemctl reboot
     end
 
     #change the screen brightness with brightnessctl
