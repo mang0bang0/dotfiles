@@ -1,4 +1,7 @@
 if status is-interactive
+    # Start starship
+    starship init fish | source
+
     #------------------#
     #------BINDS-------#
     #------------------#
