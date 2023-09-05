@@ -82,6 +82,7 @@ if status is-interactive
     #requires ripgrep (grep works but need to change)
     function batt
         upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg percentage
+        upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg state
     end
 
     #------------------#
