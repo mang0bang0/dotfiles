@@ -75,7 +75,11 @@ if status is-interactive
     #change the screen brightness with brightnessctl
     #requires the package brightnessctl
     function brightness
-        brightnessctl -d intel_backlight set $argv
+        if test (count $argv) -eq 0
+            brightnessctl info
+        else
+            brightnessctl -d intel_backlight set $argv
+        end
     end
 
     #prints battery percentage
