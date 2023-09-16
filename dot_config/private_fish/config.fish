@@ -17,6 +17,7 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add cm chezmoi
     abbr --add ide flatpak run com.st.STM32CubeIDE
+    abbr --add lock swaylock -c 222436
 
 
     #------------------#
@@ -85,8 +86,7 @@ if status is-interactive
     #prints battery percentage
     #requires ripgrep (grep works but need to change)
     function batt
-        upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg percentage
-        upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg state
+        upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg percentage\|state | tac
     end
 
     #------------------#
@@ -130,7 +130,7 @@ if status is-interactive
     #for example `nvim ~/.config <C-t>` will only list files under ~/.config
     #while `nvim <C-t>` will show results under ./
     #-a prints absolute path. fd doesn't play well with pasting relative
-    set -x FZF_CTRL_T_COMMAND "fd -H --base-directory \$dir --type f --absolute-path"
+    set -x FZF_CTRL_T_COMMAND "fd -H -I --base-directory \$dir --type f --absolute-path"
     #adds previews
     #<C-d> and <C-u> to scroll down and up the buffer
     set -x FZF_CTRL_T_OPTS "
