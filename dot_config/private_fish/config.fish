@@ -75,7 +75,7 @@ if status is-interactive
 
     #change the screen brightness with brightnessctl
     #requires the package brightnessctl
-    function brightness
+    function brt
         if test (count $argv) -eq 0
             brightnessctl info
         else
