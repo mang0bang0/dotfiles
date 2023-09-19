@@ -23,20 +23,20 @@ if status is-interactive
     #------------------#
     #-----ALIASES------#
     #------------------#
-    #exa instead of ls
-    #ls = exa show icons, long, classify, directories first, git
+    #eza instead of ls
+    #ls = eza show icons, long, classify, directories first, git
     function ls
-        exa --long --classify --git --icons --group-directories-first --header $argv
+        eza --long --classify --git --icons --group-directories-first --header $argv
     end
 
     #la adds hidden files
     function la
-        exa --long --classify --icons --group-directories-first --header --all $argv
+        eza --long --classify --icons --group-directories-first --header --all $argv
     end
 
     #lt lists in tree view
     function lt
-        exa --tree --icons --level=3 --long --header --all $argv
+        eza --tree --icons --level=3 --long --header --all $argv
     end
 
     #function to make a directory and go in there
@@ -127,7 +127,7 @@ if status is-interactive
 
     #<C-t> behavior for finding file
     #only finds files, uses token in command line as base directory
-    #for example `nvim ~/.config <C-t>` will only list files under ~/.config
+    #for ezample `nvim ~/.config <C-t>` will only list files under ~/.config
     #while `nvim <C-t>` will show results under ./
     #-a prints absolute path. fd doesn't play well with pasting relative
     set -x FZF_CTRL_T_COMMAND "fd -H -I --base-directory \$dir --type f --absolute-path"
@@ -148,7 +148,7 @@ if status is-interactive
     #<A-c> behavior for cd into directories
     #only finds directories under home, use absolute path
     set -x FZF_ALT_C_COMMAND "fd -H --base-directory ~ --type d --absolute-path"
-    #adds tree view from exa, 3 levels down, same scrolling binds
+    #adds tree view from eza, 3 levels down, same scrolling binds
     set -x FZF_ALT_C_OPTS "
     --height=40%
     --border
@@ -158,6 +158,6 @@ if status is-interactive
     --reverse
     --tabstop=4
     --bind=ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up
-    --preview 'exa -T --icons --level=3 -h {}'
+    --preview 'eza -T --icons --level=3 -h {}'
     "
 end
