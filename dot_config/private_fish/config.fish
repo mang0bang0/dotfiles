@@ -17,7 +17,7 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add cm chezmoi
     abbr --add ide flatpak run com.st.STM32CubeIDE
-    abbr --add lock swaylock -c 222436
+    abbr --add lk swaylock -c 222436
 
 
     #------------------#
