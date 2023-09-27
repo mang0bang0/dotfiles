@@ -1,10 +1,37 @@
 --os.date("%H") returns the hour in 24 hour format
 local hour = tonumber(os.date("%H"))
 local day = (hour >= 6 and hour < 20)
+local afternoon = (hour >= 14 and hour < 20)
 
 return {
     --note that tokyonight and gruvbox don't share the same color scheme
     --configuration settings.
+    {
+        "rebelot/kanagawa.nvim",
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+
+        config = function ()
+            require('kanagawa').setup({
+                functionStyle = {bold = true},
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none"
+                            }
+                        }
+                    }
+                }
+            })
+
+            if not day then
+                vim.cmd.colorscheme("kanagawa-dragon")
+            end
+        end
+    },
+
     {
         "folke/tokyonight.nvim",
         enabled = true,
@@ -66,9 +93,11 @@ return {
 
             --use tokyonight only between 06:00 and 19:59
             if day then
-                vim.cmd.colorscheme("tokyonight-storm")
-            else
-                vim.cmd.colorscheme("tokyonight-moon")
+                if not afternoon then
+                    vim.cmd.colorscheme("tokyonight-storm")
+                else
+                    vim.cmd.colorscheme("tokyonight-moon")
+                end
             end
         end,
     },
