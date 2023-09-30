@@ -148,7 +148,7 @@ vim.keymap.set({'n', 'v'}, '<leader>P', '"0P',
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>",
                {desc = "Telescope files", silent = true})
 
-vim.keymap.set("n", "<leader>F", ":Telescope find_files hidden=true<CR>",
+vim.keymap.set("n", "<leader>F", ":Telescope find_files hidden=true no_ignore=true<CR>",
                {desc = "Telescope files (hidden)", silent = true})
 
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>",
