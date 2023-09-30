@@ -12,7 +12,6 @@ return {
             "cpp",
             "fish",
             "json",
-            "latex",
             "lua",
             "luadoc",
             "markdown",
@@ -25,6 +24,8 @@ return {
         sync_install = false,
 
         auto_install = true,
+
+        ignore_install = {"latex"},
 
         --turns on highlighting
         highlight = {
