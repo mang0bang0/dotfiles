@@ -7,6 +7,8 @@
 # Solve issue of GTK apps taking forever to start
 exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
 
+exec swayidle timeout 60 'swaylock -c 222436'
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
