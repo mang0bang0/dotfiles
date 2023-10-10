@@ -3,6 +3,9 @@ return {
     dependencies = "HiPhish/rainbow-delimiters.nvim",
     config = function ()
         require "ibl".setup({
+            indent = {
+                char = '│',
+            },
             scope = {
                 show_start = false,
                 show_end = false,
@@ -28,10 +31,9 @@ return {
 
         require "ibl".update { scope = { highlight = highlight } }
 
-        local hooks = require "ibl.hooks"
-        hooks.register(
-            hooks.type.SCOPE_HIGHLIGHT,
-            hooks.builtin.scope_highlight_from_extmark
+        require "ibl.hooks".register(
+            require "ibl.hooks".type.SCOPE_HIGHLIGHT,
+            require "ibl.hooks".builtin.scope_highlight_from_extmark
         )
     end
 }
