@@ -4,7 +4,7 @@ local day = (hour >= 6 and hour < 20)
 local afternoon = (hour >= 14 and hour < 20)
 
 return {
-    --note that tokyonight and gruvbox don't share the same color scheme
+    --note that tokyonight and kanagawa don't share the same color scheme
     --configuration settings.
     {
         "rebelot/kanagawa.nvim",
@@ -23,7 +23,12 @@ return {
                             }
                         }
                     }
-                }
+                },
+                overrides = function(colors)
+                    return {
+                        MiniTrailspace = {bg = colors.palette.samuraiRed}
+                    }
+                end
             })
 
             if not day then
