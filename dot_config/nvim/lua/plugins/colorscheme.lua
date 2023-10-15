@@ -2,6 +2,7 @@
 local hour = tonumber(os.date("%H"))
 local day = (hour >= 6 and hour < 20)
 local afternoon = (hour >= 14 and hour < 20)
+local midnight = (hour >= 20 or hour < 6)
 
 return {
     --note that tokyonight and kanagawa don't share the same color scheme
@@ -32,7 +33,11 @@ return {
             })
 
             if not day then
-                vim.cmd.colorscheme("kanagawa-dragon")
+                if not midnight then
+                    vim.cmd.colorscheme("kanagawa-wave")
+                else
+                    vim.cmd.colorscheme("kanagawa-dragon")
+                end
             end
         end
     },
