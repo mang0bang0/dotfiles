@@ -7,6 +7,7 @@ return {
                 char = '│',
             },
             scope = {
+                enabled = false,
                 show_start = false,
                 show_end = false,
             },
@@ -19,6 +20,7 @@ return {
             }
         })
 
+        --[[
         local highlight = {
             "RainbowDelimiterRed",
             "RainbowDelimiterYellow",
@@ -35,5 +37,6 @@ return {
             require "ibl.hooks".type.SCOPE_HIGHLIGHT,
             require "ibl.hooks".builtin.scope_highlight_from_extmark
         )
+        ]]--
     end
 }
