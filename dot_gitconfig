@@ -12,6 +12,9 @@
 [clean]
     requireForce = false
 
+[pull]
+    rebase = false
+
 [delta]
     navigate = true
 
