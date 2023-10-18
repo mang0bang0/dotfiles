@@ -2,7 +2,7 @@
 local hour = tonumber(os.date("%H"))
 local day = (hour >= 6 and hour < 20)
 local afternoon = (hour >= 14 and hour < 20)
-local midnight = (hour >= 20 or hour < 6)
+local midnight = (hour >= 0 and hour < 6)
 
 return {
     --note that tokyonight and kanagawa don't share the same color scheme
