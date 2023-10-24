@@ -1,6 +1,7 @@
 [user]
     name = mango
     email = mangogit@protonmail.com
+    signingkey = ~/.ssh/id_ed25519_sk.pub
 
 [core]
     editor = nvim
@@ -35,3 +36,9 @@
 
 [diff]
     colorMoved = default
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
