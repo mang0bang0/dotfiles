@@ -128,11 +128,11 @@ vim.keymap.set('n', '<A-j>', '<C-w>j')
 vim.keymap.set('n', '<A-k>', '<C-w>k')
 vim.keymap.set('n', '<A-l>', '<C-w>l')
 
---change window location with <Alt-arrowkeys>
-vim.keymap.set('n', '<A-Left>', '<C-w>H')
-vim.keymap.set('n', '<A-Down>', '<C-w>J')
-vim.keymap.set('n', '<A-Up>', '<C-w>K')
-vim.keymap.set('n', '<A-Right>', '<C-w>L')
+--change window location with <Alt-{HJKL}>
+vim.keymap.set('n', '<A-H>', '<C-w>H')
+vim.keymap.set('n', '<A-J>', '<C-w>J')
+vim.keymap.set('n', '<A-K>', '<C-w>K')
+vim.keymap.set('n', '<A-L>', '<C-w>L')
 
 --set windows to equal size with <A-=>
 vim.keymap.set('n', '<A-=>', '<C-w>=')
