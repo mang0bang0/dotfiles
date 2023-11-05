@@ -81,6 +81,9 @@ vim.g.mapleader = " "
 -- add fill chars to make Diffview look nice
 vim.opt.fillchars:append{diff = "╱"}
 
+-- C options
+vim.opt.cinoptions = "l1,(0,t0"
+
 ------------------------------
 -------------LAZY-------------
 ------------------------------
