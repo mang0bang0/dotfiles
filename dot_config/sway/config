@@ -206,6 +206,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Screenshot
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
 # TODO: Probably want 1password to be a floating container right?
 
 #
