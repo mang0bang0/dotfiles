@@ -9,6 +9,12 @@ exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
 
 exec swayidle timeout 90 'swaylock -c 222436'
 
+exec gammastep -l 42.7:73.8
+
+# exec waybar
+
+# default_border pixel 2
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -206,6 +212,7 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+
 bar {
     position top
 
