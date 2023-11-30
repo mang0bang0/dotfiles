@@ -183,33 +183,20 @@ vim.keymap.set("n", "<leader>x", ":TroubleToggle<CR>",
                {desc = "Show diagnostics", silent = true})
 
 -- LSPSaga related
-vim.keymap.set({"n","v"}, "<leader>c", "<cmd>Lspsaga code_action<CR>",
+vim.keymap.set({"n","v"}, "<leader>c", function() vim.lsp.buf.code_action() end,
                {desc = "Code action"})
 
-vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>",
+vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end,
                {desc = "Rename LSP"})
--- ^^^ project rename doesn't really work
 
-vim.keymap.set("n", "<leader>i", "<cmd>Lspsaga finder<CR>",
-               {desc = "Finder LSP"})
-
-vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>",
+vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
                {desc = "Go to def LSP"})
 
-vim.keymap.set("n", "gD", "<cmd>Lspsaga goto_type_definition<CR>",
+vim.keymap.set("n", "gD", function() vim.lsp.buf.type_definition() end,
                {desc = "Go to type def LSP"})
 
-vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga peek_definition<CR>",
-               {desc = "Peek def LSP"})
-
-vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga peek_type_definition<CR>",
-               {desc = "Peek type def LSP"})
-
-vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>",
+vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end,
                {desc = "Hover doc LSP"})
-
-vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>",
-               {desc = "Outline LSP"})
 
 -- Git
 vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>",
