@@ -90,6 +90,11 @@ if status is-interactive
         upower -i /org/freedesktop/UPower/devices/battery_BAT0 | rg percentage\|state | tac
     end
 
+    #screenshot function
+    function sg
+        echo "Enter filename:" && grim -g (slurp) (read)
+    end
+
     #------------------#
     #-----SETTINGS-----#
     #------------------#
