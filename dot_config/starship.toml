@@ -1,0 +1,39 @@
+# $line_break gives you the two lines
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$python\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$shell\
+$character\
+"""
+
+# Shell level is good if you open fish in fish for example
+# In sway, base shell level is 2. Every new one would spawn an additional symbol
+[shlvl]
+disabled = false
+repeat = true
+repeat_offset = 2
+symbol = '󱞣  '
+format = '[$symbol]($style)'
+
+[directory]
+fish_style_pwd_dir_length = 1
+truncate_to_repo = false
+
+[git_branch]
+format = '[$branch(:$remote_branch)]($style) '
