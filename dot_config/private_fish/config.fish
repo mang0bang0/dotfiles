@@ -16,9 +16,8 @@ if status is-interactive
     abbr --add update ~/.update.fish
     abbr --add lg lazygit
     abbr --add cm chezmoi
-    abbr --add ide flatpak run com.st.STM32CubeIDE
     abbr --add lk swaylock -c 222436
-
+    abbr --add al swaymsg -- exec swayidle timeout 90 \\\'swaylock -c 222436\\\'
 
     #------------------#
     #-----ALIASES------#
