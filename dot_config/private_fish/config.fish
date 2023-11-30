@@ -2,6 +2,8 @@ if status is-interactive
     # Start starship
     starship init fish | source
 
+    # Disable accessibility setting
+    set -gx NO_AT_BRIDGE 1
     #------------------#
     #------BINDS-------#
     #------------------#
