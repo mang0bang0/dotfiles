@@ -10,15 +10,12 @@ $git_state\
 $git_status\
 $docker_context\
 $python\
+$fill\
 $cmd_duration\
 $line_break\
 $jobs\
 $battery\
-$time\
-$status\
-$os\
 $container\
-$shell\
 $character\
 """
 
@@ -37,3 +34,23 @@ truncate_to_repo = false
 
 [git_branch]
 format = '[$branch(:$remote_branch)]($style) '
+
+[git_status]
+format = '([$all_status]($style) )'
+conflicted = '[󰦎 $count ](bold red)'
+stashed = '[*$count ](bold cyan)'
+deleted = '[ $count ](bold red)'
+renamed = '[󰑕 $count ](bold yellow)'
+modified = '[!$count ](bold yellow)'
+staged = '[+$count ](bold green)'
+untracked = '[?$count ](bold blue)'
+
+[fill]
+symbol = ' '
+
+[cmd_duration]
+min_time = 2_000
+format = '[$duration]($style) '
+
+[jobs]
+format = '[$symbol $number]($style)'
