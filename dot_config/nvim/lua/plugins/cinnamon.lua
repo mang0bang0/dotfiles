@@ -1,4 +1,4 @@
-return{
+return {
     "declancm/cinnamon.nvim",
     opts = {
         extra_keymaps = true,
