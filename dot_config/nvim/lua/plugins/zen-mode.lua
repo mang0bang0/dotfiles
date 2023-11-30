@@ -11,10 +11,11 @@ return {
     -- },
     {
         "folke/zen-mode.nvim",
-        config = true,
-        -- dependencies = {
-        --     "folke/twilight.nvim",
-        -- },
         cmd = "ZenMode",
+        opts = {
+            window = {
+                width = 100,
+            }
+        }
     }
 }
