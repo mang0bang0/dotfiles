@@ -14,18 +14,26 @@ set {
     $auxdisp 'Ancor Communications Inc VG248 J5LMQS170229'
 }
 
+{{ if eq .chezmoi.hostname "server" }}
 # No mouse acceleration
 input type:pointer {
     accel_profile "flat"
     pointer_accel 0
 }
+{{ end }}
 
+{{ if eq .chezmoi.hostname "server" }}
 # Display outputs
 # VG248 on the left, XG270QG on the right
 output {
     $auxdisp position 0 0
     $maindisp position 1920 0
 }
+{{ end }}
+
+{{ if eq .chezmoi.hostname "laptop" }}
+input 1739:0:Synaptics_TM3289-002 natural_scroll enabled
+{{ end }}
 
 # Set a wallpaper
 # output * bg /home/mango/Documents/Holy_SURP_Hovhannes_Church.jpg stretch
