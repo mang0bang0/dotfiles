@@ -21,7 +21,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    background: #ffc777;
+    background: #ff966c;
     color: #1e2030;
     border-radius: 13px;
     margin-left: 10px;
@@ -31,7 +31,7 @@ window#waybar {
 }
 
 #scratchpad {
-    background: #c3e88d;
+    background: #4fd6be;
     color: #1e2030;
     padding-left: 10px;
     padding-right: 10px;
@@ -63,3 +63,55 @@ window#waybar {
     min-width: 24px;
     border-radius: 13px;
 }
+
+{{ if eq .chezmoi.hostname "laptop" }}
+#battery {
+    background: #86e1fc;
+    color: #1e2030;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+    border-radius: 13px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#battery.charging {
+    background: #c3e88d;
+}
+
+#battery.warning.discharging {
+    background: #ffc777;
+}
+
+#battery.warning.charging {
+    background: #c3e88d;
+}
+
+#battery.critical.discharging {
+    background: #ff757f;
+}
+
+#battery.critical.charging {
+    background: #c3e88d;
+}
+
+#network {
+    background: #82aaff;
+    color: #1e2030;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+    border-radius: 13px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#network.disconnected {
+    background: #ff757f;
+}
+{{ end }}
