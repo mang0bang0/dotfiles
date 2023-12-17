@@ -31,12 +31,12 @@ if status is-interactive
 
     #la adds hidden files
     function la
-        eza --long --classify --icons --group-directories-first --header --all $argv
+        eza --long --classify --git --icons --group-directories-first --header --all $argv
     end
 
     #lt lists in tree view
     function lt
-        eza --tree --icons --level=3 --long --header --all $argv
+        eza --tree --git --icons --level=3 --long --header --all $argv
     end
 
     #function to make a directory and go in there
