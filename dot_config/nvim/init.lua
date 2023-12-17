@@ -123,7 +123,7 @@ vim.keymap.set("n", "<leader>n",
 --<spc>h to clear highlights
 --<C-l> can also be used to clear highlights and cmdline
 vim.keymap.set("n", "<leader>h", ":noh<Enter>",
-               {desc = "Toggle line numbers", silent = true})
+               {desc = "Clear search highlight", silent = true})
 
 --move to different windows with <Alt-{hjkl}>
 vim.keymap.set('n', '<A-h>', '<C-w>h')
@@ -245,7 +245,7 @@ vim.fn.sign_define("DiagnosticSignWarn",
 vim.fn.sign_define("DiagnosticSignInfo",
 {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint",
-{text = "", texthl = "DiagnosticSignHint"})
+{text = "󰌵", texthl = "DiagnosticSignHint"})
 
 --Must advertise capabilities to every LSP server
 --Add autocopmlete capabilities
