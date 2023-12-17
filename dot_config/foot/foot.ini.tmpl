@@ -6,7 +6,11 @@ include=~/.config/foot/tokyonight_storm.ini
 # include=~/.config/foot/kanagawa.ini
 
 # FONTS #
+{{ if eq .chezmoi.hostname "laptop" }}
+font=Input:size=8,Symbols Nerd Font Mono:size=8
+{{ else }}
 font=Input:size=12,Symbols Nerd Font Mono:size=12
+{{ end }}
 dpi-aware=yes # need this to make the font look not skinny
 
 # Pad 5 pixels on the left, right, top and bottom of temrinal content
