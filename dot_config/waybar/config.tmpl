@@ -5,7 +5,11 @@
     "height": 36,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
+    {{ if eq .chezmoi.hostname "server" }}
     "modules-right": ["sway/scratchpad", "clock"],
+    {{ else if eq .chezmoi.hostname "laptop" }}
+    "modules-right": ["sway/scratchpad", "battery", "network", "clock"],
+    {{ end }}
     "clock": {
         // Must start with a ':'
         "format": "{:%a %m-%d %H:%M}",
@@ -26,5 +30,21 @@
         "format": "{icon}",
         // This is done so the icon doesn't suddently disappear
         "format-icons": ["", "", ""]
+    },
+    {{ if eq .chezmoi.hostname "laptop" }}
+    "battery": {
+        "align": 0.5,
+        "tooltip": false,
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 10
+        }
+    },
+    "network": {
+        "format-wifi": "󰖩",
+        "format-disconnected": "󰖪",
+        "tooltip": false
     }
+    {{ end }}
 }
