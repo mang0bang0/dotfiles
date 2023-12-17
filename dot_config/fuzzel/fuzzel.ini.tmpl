@@ -1,5 +1,9 @@
 [main]
+    {{ if eq .chezmoi.hostname "laptop" }}
+    font=Input:size=8
+    {{ else if eq .chezmoi.hostname "server" }}
     font=Input
+    {{ end }}
     prompt="❯ "
     terminal=foot
     tabs=4
