@@ -1,0 +1,30 @@
+{
+    "layer": "top",
+    "position": "top",
+    // Must not be touched, all the css depends on this lol
+    "height": 36,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["sway/scratchpad", "clock"],
+    "clock": {
+        // Must start with a ':'
+        "format": "{:%a %m-%d %H:%M}",
+        "tooltip": false
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-click": true,
+        "format": "{name}",
+    },
+    "sway/window": {
+        // Center
+        "align": 0.5,
+    },
+    "sway/scratchpad": {
+        // I don't want 0 showing up
+        "show-empty": true,
+        "format": "{icon}",
+        // This is done so the icon doesn't suddently disappear
+        "format-icons": ["", "", ""]
+    }
+}

@@ -1,0 +1,65 @@
+* {
+    font-family: Input;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: #222436;
+}
+
+#workspaces button {
+    background: #82aaff;
+    color: #1e2030;
+    border-radius: 13px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+    transition: background 0.2s ease-in-out;
+}
+
+#workspaces button.focused {
+    background: #ffc777;
+    color: #1e2030;
+    border-radius: 13px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+}
+
+#scratchpad {
+    background: #c3e88d;
+    color: #1e2030;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+    border-radius: 13px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#scratchpad.empty {
+    background: #222436;
+    color: #222436;
+}
+
+#window {
+    color: #c8d3f5;
+}
+
+#clock {
+    background: #c099ff;
+    color: #1e2030;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 24px;
+    border-radius: 13px;
+}
