@@ -19,7 +19,6 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add cm chezmoi
     abbr --add lk swaylock -c 222436
-    abbr --add al swaymsg -- exec swayidle timeout 90 \\\'swaylock -c 222436\\\'
 
     #------------------#
     #-----ALIASES------#
