@@ -51,7 +51,6 @@ packages=(
     "ripgrep"
     "starship"
     "symbols-only-nerd-fonts"
-    "texlive-scheme-medium"
     "zathura"
 )
 
