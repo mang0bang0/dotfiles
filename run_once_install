@@ -60,6 +60,9 @@ echo "Installing packages!"
 
 sudo zypper --non-interactive in $packagestring
 
+# Remove pre-installed alacritty
+sudo zypper rm alacritty
+
 # Need to do bridge separately because one of the dependencies is missing
 # and it needs to be manually confirmed
 sudo zypper in protonmail-bridge.rpm
