@@ -48,7 +48,6 @@ packages=(
     "neovim"
     "noto-sans-fonts"
     "noto-serif-fonts"
-    "protonmail-bridge.rpm"
     "ripgrep"
     "starship"
     "symbols-only-nerd-fonts"
@@ -62,6 +61,9 @@ echo "Installing packages!"
 
 sudo zypper --non-interactive in $packagestring
 
+# Need to do bridge separately because one of the dependencies is missing
+# and it needs to be manually confirmed
+sudo zypper in protonmail-bridge.rpm
 rm protonmail-bridge.rpm
 
 echo "Package install finished!"
