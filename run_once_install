@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Before starting, make sure chezmoi and git are installed
+# Before starting, make sure chezmoi and git are installed,
+# and grab key with ssh-keygen -K
 
 ### Install packages
 
@@ -59,7 +60,7 @@ packagestring="${packages[*]}"
 
 echo "Installing packages!"
 
-sudo zypper in "$packagestring"
+sudo zypper --non-interactive in $packagestring
 
 rm protonmail-bridge.rpm
 
