@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Before starting, make sure chezmoi and git are installed
+
+# Get the Proton Mail Bridge rpm
+curl --output protonmail-bridge.rpm https://proton.me/download/bridge/protonmail-bridge-3.7.1-1.x86_64.rpm
+
+# Get the 1Password repository, following directions from:
+# https://support.1password.com/install-linux/#suse-linux-or-opensuse
+sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+sudo zypper addrepo https://downloads.1password.com/linux/rpm/stable/x86_64 1password
+
+# List of packages to install
+packages=(
+    "1password"
+    "MozillaFirefox"
+    "MozillaThunderbird"
+    "bat"
+    "cmake"
+    "dejavu-fonts"
+    "eza"
+    "fd"
+    "ffmpeg-5"
+    "fish"
+    "fnott"
+    "foot"
+    "fuzzel"
+    "fzf"
+    "gammastep"
+    "gcc"
+    "gcc-c++"
+    "gdb"
+    "gh"
+    "git-delta"
+    "gnome-calculator"
+    "gnome-keyring"
+    "gstreamer-plugin-openh264"
+    "htop"
+    "keychain"
+    "lazygit"
+    "libnotify"
+    "make"
+    "make"
+    "nemo"
+    "neovim"
+    "noto-sans-fonts"
+    "noto-serif-fonts"
+    "protonmail-bridge.rpm"
+    "ripgrep"
+    "starship"
+    "symbols-only-nerd-fonts"
+    "texlive-scheme-medium"
+    "zathura"
+)
+
+packagestring="${packages[*]}"
+
+echo "Installing packages!"
+
+sudo zypper in "$packagestring"
+
+rm protonmail-bridge.rpm
