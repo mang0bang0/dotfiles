@@ -2,28 +2,22 @@
 
 #!/bin/bash
 
-# Before starting, make sure chezmoi and git are installed,
+# Before starting, make sure chezmoi, git, and curl are installed,
 # and grab key with ssh-keygen -K
 
 ### Install packages
 
-# Get the Proton Mail Bridge rpm
-curl --output protonmail-bridge.rpm https://proton.me/download/bridge/protonmail-bridge-3.7.1-1.x86_64.rpm
+# Note: just a setup for CLI tools. Not using it as an actual desktop
 
-# Get the 1Password repository, following directions from:
-# https://support.1password.com/install-linux/#suse-linux-or-opensuse
-sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
-sudo zypper addrepo https://downloads.1password.com/linux/rpm/stable/x86_64 1password
+# Get the release of git-delta from GitHub
+wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
 
 # List of packages to install
 packages=(
     "1password"
-    "MozillaFirefox"
-    "MozillaThunderbird"
     "bat"
     "cmake"
-    "dejavu-fonts"
-    "eza"
+    "exa"
     "fd"
     "ffmpeg-5"
     "fish"
@@ -36,39 +30,26 @@ packages=(
     "gcc-c++"
     "gdb"
     "gh"
-    "git-delta"
-    "gnome-calculator"
-    "gnome-keyring"
-    "gstreamer-plugin-openh264"
     "htop"
-    "keychain"
     "lazygit"
-    "libnotify"
     "make"
     "make"
     "nemo"
     "neovim"
-    "noto-sans-fonts"
-    "noto-serif-fonts"
     "ripgrep"
     "starship"
-    "symbols-only-nerd-fonts"
-    "zathura"
 )
 
 packagestring="${packages[*]}"
 
 echo "Installing packages!"
 
-sudo zypper --non-interactive in $packagestring
+sudo apt install --yes $packagestring
 
-# Remove pre-installed alacritty
-sudo zypper rm alacritty
-
-# Need to do bridge separately because one of the dependencies is missing
-# and it needs to be manually confirmed
-sudo zypper in protonmail-bridge.rpm
-rm protonmail-bridge.rpm
+# Link fd, because of apt
+cd /usr/local/bin/
+sudo ln -s $(which fdfind) fd
+cd
 
 echo "Package install finished!"
 
