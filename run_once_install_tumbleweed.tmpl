@@ -15,6 +15,14 @@ curl --output protonmail-bridge.rpm https://proton.me/download/bridge/protonmail
 sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
 sudo zypper addrepo https://downloads.1password.com/linux/rpm/stable/x86_64 1password
 
+# If laptop, get xremap. Need to visudo to run without password
+{{ if eq .chezmoi.hostname "laptop" }}
+wget https://github.com/k0kubun/xremap/releases/download/v0.8.12/xremap-linux-x86_64-sway.zip
+unzip xremap-linux-x86_64-sway.zip
+sudo mv xremap /usr/local/bin/
+rm xremap-linux-x86_64-sway.zip
+{{ end }}
+
 # List of packages to install
 packages=(
     "1password"
