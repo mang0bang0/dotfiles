@@ -4,6 +4,7 @@
 
 # Before starting, make sure chezmoi and git are installed,
 # and grab key with ssh-keygen -K
+# Then SET THE HOSTNAME
 
 ### Install packages
 
@@ -83,6 +84,16 @@ echo "Package install finished!"
 
 # Change shell to fish
 chsh --shell "$(which fish)"
+
+# Have fzf configured
+curl --output install https://raw.githubusercontent.com/junegunn/fzf/master/install
+bash install
+rm install
+# Remove this directory that the install script sets up
+rm -r bin/
+# The install script also adds stuff to path that I don't want
+sed -i '//home/mango/bin/d' /home/mango/.config/fish/fish_variables
+set -gx $fish_user_paths
 
 # Reboot
 systemctl reboot
