@@ -256,8 +256,8 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
---Python
-require("lspconfig").pyright.setup{
+--Bash
+require("lspconfig").bashls.setup{
     capabilities = capabilities,
 }
 
@@ -274,6 +274,10 @@ require("lspconfig").clangd.setup{
         -- being able to know when it has auto-inserted lines.
         "--header-insertion-decorators=false",
     },
+}
+
+require("lspconfig").jsonls.setup{
+    capabilities = capabilities,
 }
 
 --Lua
@@ -301,12 +305,17 @@ require("lspconfig").lua_ls.setup{
     capabilities = capabilities,
 }
 
--- LaTeX (THIS LSP IS EXTREMELY SLOW)
+-- LaTeX
 require("lspconfig").texlab.setup{
     capabilities = capabilities,
 }
 
 --Markdown
 require("lspconfig").marksman.setup{
+    capabilities = capabilities,
+}
+
+--Python
+require("lspconfig").pylsp.setup{
     capabilities = capabilities,
 }
