@@ -16,10 +16,11 @@ return {
         opts = {
             ensure_installed = {
                 "clangd",     --C, C++
-                -- "pyright",    --Python
+                "pylsp",    --Python
                 "lua_ls",     --Lua
                 "texlab",     --Latex
                 "marksman",   --Markdown
+                "jsonls",
             },
         },
     },
