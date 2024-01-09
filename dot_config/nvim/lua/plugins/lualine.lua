@@ -16,7 +16,7 @@ local outline = {
     },
 
     filetypes = {
-        "sagaoutline",
+        "aerial",
     }
 }
 
@@ -54,7 +54,7 @@ return {
 
         sections = {
             lualine_x = {
-                {"datetime", style = "%m/%d %H:%M"},
+                {"datetime", style = "%m-%d %H:%M"},
                 "filetype"
             },
         },
