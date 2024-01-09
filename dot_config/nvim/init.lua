@@ -122,8 +122,11 @@ vim.keymap.set("n", "<leader>n",
 
 --<spc>h to clear highlights
 --<C-l> can also be used to clear highlights and cmdline
-vim.keymap.set("n", "<leader>h", ":noh<Enter>",
-               {desc = "Clear search highlight", silent = true})
+vim.keymap.set("n", "<leader>h", ":Telescope help_tags<CR>",
+               {desc = "Telescope help", silent = true})
+
+vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>",
+               {desc = "Telescope files", silent = true})
 
 --move to different windows with <Alt-{hjkl}>
 vim.keymap.set('n', '<A-h>', '<C-w>h')
@@ -182,7 +185,7 @@ vim.keymap.set("n", "<leader>z", ":ZenMode<CR>",
 vim.keymap.set("n", "<leader>x", ":TroubleToggle<CR>",
                {desc = "Show diagnostics", silent = true})
 
--- LSPSaga related
+-- LSP related
 vim.keymap.set({"n","v"}, "<leader>c", function() vim.lsp.buf.code_action() end,
                {desc = "Code action"})
 
@@ -197,6 +200,8 @@ vim.keymap.set("n", "gD", function() vim.lsp.buf.type_definition() end,
 
 vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end,
                {desc = "Hover doc LSP"})
+
+vim.keymap.set("n", "<leader>o", ":AerialToggle<CR>", {desc = "LSP Outline"})
 
 -- Git
 vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>",
