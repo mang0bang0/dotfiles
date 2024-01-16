@@ -324,3 +324,8 @@ require("lspconfig").marksman.setup{
 require("lspconfig").pylsp.setup{
     capabilities = capabilities,
 }
+
+--R
+require("lspconfig").r_language_server.setup{
+    capabilities = capabilities,
+}
