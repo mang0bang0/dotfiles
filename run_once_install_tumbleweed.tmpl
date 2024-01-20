@@ -6,10 +6,13 @@
 # and grab key with ssh-keygen -K
 # Then SET THE HOSTNAME
 
+# Move to home directory
+cd ~/
+
 ### Install packages
 
 # Get the Proton Mail Bridge rpm
-curl --output protonmail-bridge.rpm https://proton.me/download/bridge/protonmail-bridge-3.7.1-1.x86_64.rpm
+curl --output protonmail-bridge.rpm https://proton.me/download/bridge/protonmail-bridge-3.8.1-1.x86_64.rpm
 
 # Get the 1Password repository, following directions from:
 # https://support.1password.com/install-linux/#suse-linux-or-opensuse
@@ -18,7 +21,7 @@ sudo zypper addrepo https://downloads.1password.com/linux/rpm/stable/x86_64 1pas
 
 # If laptop, get xremap. Need to visudo to run without password
 {{ if eq .chezmoi.hostname "laptop" }}
-wget https://github.com/k0kubun/xremap/releases/download/v0.8.12/xremap-linux-x86_64-sway.zip
+wget https://github.com/k0kubun/xremap/releases/download/v0.8.14/xremap-linux-x86_64-sway.zip
 unzip xremap-linux-x86_64-sway.zip
 sudo mv xremap /usr/local/bin/
 rm xremap-linux-x86_64-sway.zip
