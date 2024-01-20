@@ -53,6 +53,9 @@ return {
         },
 
         sections = {
+            lualine_c = {
+                require("lsp-progress").progress
+            },
             lualine_x = {
                 {"datetime", style = "%m-%d %H:%M"},
                 "filetype"
