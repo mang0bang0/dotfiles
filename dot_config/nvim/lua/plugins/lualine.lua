@@ -54,6 +54,7 @@ return {
 
         sections = {
             lualine_c = {
+                "filename",
                 require("lsp-progress").progress
             },
             lualine_x = {
