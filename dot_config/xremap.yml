@@ -1,0 +1,10 @@
+modmap:
+  - name: caps
+    remap:
+      KEY_CAPSLOCK:
+        held: [KEY_LEFTCTRL]
+        alone: [KEY_ESC]
+        alone_timeout_millis: 150
+  - name: rgui
+    remap:
+      KEY_RIGHTSHIFT: KEY_RIGHTMETA
