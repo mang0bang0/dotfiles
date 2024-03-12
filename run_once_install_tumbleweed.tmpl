@@ -63,6 +63,7 @@ packages=(
     "ripgrep"
     "starship"
     "symbols-only-nerd-fonts"
+    "tmux"
     "zathura"
 )
 
@@ -70,7 +71,7 @@ packagestring="${packages[*]}"
 
 echo "Installing packages!"
 
-sudo zypper --non-interactive in $packagestring
+sudo zypper in $packagestring
 
 # Remove pre-installed alacritty
 sudo zypper rm alacritty
