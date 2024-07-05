@@ -128,10 +128,6 @@ vim.keymap.set("n", "<leader>h", ":Telescope help_tags<CR>",
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>",
                {desc = "Telescope files", silent = true})
 
--- zz after <Ctrl-U> and <Ctrl-D>
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-
 --move to different windows with <Alt-{hjkl}>
 vim.keymap.set('n', '<A-h>', '<C-w>h')
 vim.keymap.set('n', '<A-j>', '<C-w>j')
