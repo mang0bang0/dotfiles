@@ -145,11 +145,15 @@ exec {
     # Stop GTK apps taking forever to start
     systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
 
+    # Enable polkit agent
+    /usr/libexec/polkit-gnome-authentication-agent-1
+
     # Lock screen after 10 min inactivity
     # Turn off displays after 15 min inactivity
     swayidle timeout 600 'swaylock -c 222436' \
         timeout 900 'swaymsg "output * power off"' \
-            resume 'swaymsg "output * power on"'
+            resume 'swaymsg "output * power on"' \
+                before-sleep 'swaylock -c 222436'
 
     # flux basically, longitutde is negative for NA
     gammastep -l '42.7:-73.8'
