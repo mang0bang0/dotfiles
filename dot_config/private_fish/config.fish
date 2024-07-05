@@ -19,7 +19,7 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add cm chezmoi
     abbr --add lk swaylock -c 222436
-
+    abbr --add kb tmux new "sudo xremap /home/mango/.config/xremap.yml"
     #------------------#
     #-----ALIASES------#
     #------------------#
@@ -135,7 +135,7 @@ if status is-interactive
     #for ezample `nvim ~/.config <C-t>` will only list files under ~/.config
     #while `nvim <C-t>` will show results under ./
     #-a prints absolute path. fd doesn't play well with pasting relative
-    set -x FZF_CTRL_T_COMMAND "fd -H -I --base-directory \$dir --type f --absolute-path"
+    set -x FZF_CTRL_T_COMMAND "fd -H -I --base-directory (pwd) --type f --absolute-path"
     #adds previews
     #<C-d> and <C-u> to scroll down and up the buffer
     set -x FZF_CTRL_T_OPTS "
