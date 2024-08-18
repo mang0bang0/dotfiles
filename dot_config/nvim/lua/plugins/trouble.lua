@@ -1,12 +1,13 @@
 return {
     "folke/trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
-    cmd = "TroubleToggle",
+    cmd = "Trouble",
 
     opts = {
-        fold_open = "",
-        fold_closed = "",
-        open_vsplit = {"v"},
-        open_split = {"h"},
-    },
+        auto_close = true,
+        keys = {
+            h = "jump_split",
+            v = "jump_vsplit",
+        }
+    }
 }

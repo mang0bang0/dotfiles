@@ -1,5 +1,6 @@
 return {
     "stevearc/aerial.nvim",
+    cmd = "AerialToggle",
     opts = {
         layout = {
             min_width = 0.15

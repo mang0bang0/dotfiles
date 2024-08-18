@@ -1,7 +1,5 @@
 return {
-    ------------------------
     ---------NOTES----------
-    ------------------------
     --Cmp is a little different. Include everything else first,then nvim-cmp,
     --then the two fuzzy finders.
 
@@ -10,9 +8,7 @@ return {
 
     --probably not lazy loading these
 
-    ------------------------
     --SOURCES and INCLUDES--
-    ------------------------
 
     --fuzzy.nvim for fuzzy finding for the two fzf sources here
     {
@@ -22,9 +18,7 @@ return {
         }
     },
 
-    -------------
-    --LSP RELATED
-    -------------
+    --LSP RELATED--
     --show say, when you're writing a function, highlightingwhich argument you
     --are at in the function
     --ADDED (1)
@@ -36,32 +30,24 @@ return {
         "hrsh7th/cmp-nvim-lsp",
     },
 
-    -------------
-    --CMD RELATED
-    -------------
+    --CMD RELATED--
     --command line mode in nvim, for '/' searches and commands
     {
         "hrsh7th/cmp-cmdline",
     },
 
-    -------------
     ----PATH-----
-    -------------
     {
         "hrsh7th/cmp-path",
     },
 
-    ------------
-    --CMP ITSELF
-    ------------
+    --CMP ITSELF--
     --nvim-cmp itself, don't set up just yet!
     {
         "hrsh7th/nvim-cmp",
     },
 
-    --------------
-    --FUZZY FINDER
-    --------------
+    --FUZZY FINDER--
     --fuzzy find in buffer
     --ADDED (3)
     {

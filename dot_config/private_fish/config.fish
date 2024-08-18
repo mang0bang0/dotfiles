@@ -26,17 +26,17 @@ if status is-interactive
     #eza instead of ls
     #ls = eza show icons, long, classify, directories first, git
     function ls
-        eza --long --classify --git --icons --group-directories-first --header $argv
+        eza --long --classify --git --icons --group-directories-first $argv
     end
 
     #la adds hidden files
     function la
-        eza --long --classify --git --icons --group-directories-first --header --all $argv
+        eza --long --classify --git --icons --group-directories-first --all $argv
     end
 
     #lt lists in tree view
     function lt
-        eza --tree --git --icons --level=3 --long --header --all $argv
+        eza --tree --git --icons --level=3 --long --all $argv
     end
 
     #function to make a directory and go in there

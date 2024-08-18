@@ -3,90 +3,82 @@
 -- 2. split the file into several different ones
 -- 3. check lazy load status of all plugins
 
-------------------------------
 -----------OPTIONS------------
-------------------------------
 
---use system clipboard
+-- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
---use terminal colors, makes color scheme work
+-- use terminal colors, makes color scheme work
 vim.opt.termguicolors = true
 
---set background to dark for dark mode
+-- set background to dark for dark mode
 vim.opt.background = "dark"
 
---enable line numbers and relative line numbers
+-- enable line numbers and relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
---always show the sign column (used by gitsigns)
+-- always show the sign column (used by gitsigns)
 vim.opt.signcolumn = "yes"
 
---highlight when searching, use <spc>h to clear highlighting
+-- highlight when searching, use <leader>h to clear highlighting
 vim.opt.hlsearch = true
---incremental search that will highlight as you're searching
+-- incremental search that will highlight as you're searching
 vim.opt.incsearch = true
 
---ignore search case unless there is a capital letter present
+-- ignore search case unless there is a capital letter present
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
---better completions? needs testing
-vim.opt.infercase = true
+-- keep 3 lines above and below cursor when it gets to the edge
+vim.opt.scrolloff = 10
 
---keep 3 lines above and below cursor when it gets to the edge
-vim.opt.scrolloff = 13
-
---tab becomes 4 spaces
+-- tab becomes 4 spaces
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 8
 vim.opt.softtabstop = 0
 
---split window behavior, default to right and down
+-- split window behavior, default to right and down
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
---set title of terminal
+-- set title of terminal
 vim.opt.title = true
 
---turn wrap off
---wrap will be on for individual file types, currently markdown and tex
+-- turn wrap off
 vim.opt.wrap = false
 
---keep wrapped text indented
+-- keep wrapped text indented
 vim.opt.breakindent = true
 
---turn on cursorline to make it easier to see
+-- turn on cursorline to make it easier to see
 vim.opt.cursorline = true
 
---turn off saying "visual" and "insert" in the options line
+-- turn off saying "visual" and "insert" in the options line
 vim.opt.showmode = false
 
---allow visual block mode cursor to go anywhere
+-- allow visual block mode cursor to go anywhere
 vim.opt.virtualedit = "block"
 
---Turn on persistent undo
---Default 1000 undos saved
+-- Turn on persistent undo
+-- Default 1000 undos saved
 vim.opt.undofile = true
 
---let neovim think any .tex file is latex by default
+-- let neovim think any .tex file is latex by default
 vim.g.tex_flavor = "latex"
 
---map leader is <spc>
+-- map leader is <spc>
 vim.g.mapleader = " "
 
 -- add fill chars to make Diffview look nice
 vim.opt.fillchars:append{diff = "╱"}
 
--- C options
+-- C options for indenting during specific line breaks
 vim.opt.cinoptions = "l1,(0,t0"
 
-------------------------------
 -------------LAZY-------------
-------------------------------
 
 --make sure to load lazy after key bindings, especially leader key
 --bootstraps lazy
@@ -107,9 +99,7 @@ vim.opt.rtp:prepend(lazypath)
 --plugins are in a child directory
 require("lazy").setup("plugins")
 
-------------------------------
 ------------REMAPS------------
-------------------------------
 
 --map <spc>n to toggle between relative and normal line numbers
 vim.keymap.set("n", "<leader>n",
@@ -149,7 +139,6 @@ vim.keymap.set({'n', 'v'}, '<leader>p', '"0p',
 vim.keymap.set({'n', 'v'}, '<leader>P', '"0P',
                {desc = "Paste last yanked", remap = true})
 
-----------PLUGINS-------------
 -- Telescope
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>",
                {desc = "Telescope files", silent = true})
@@ -174,28 +163,33 @@ vim.keymap.set("n", "<leader>u", ":Telescope undo<CR>",
                {desc = "Telescope undo history", silent = true})
 
 -- Neotree
-vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal<CR>",
-               {desc = "File explorer", silent = true})
+vim.keymap.set("n", "<leader>e", ":Oil --float .<CR>",  {desc = "File explorer", silent = true})
 
 -- Zen mode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>",
                {desc = "Zen mode", silent = true})
 
--- Trouble
-vim.keymap.set("n", "<leader>x", ":TroubleToggle<CR>",
-               {desc = "Show diagnostics", silent = true})
-
 -- LSP related
+vim.keymap.set("n", "<leader>x",
+               ":Trouble diagnostics toggle filter.buf=0 focus=true<CR>",
+               {desc = "Show buffer diagnostics", silent = true})
+
+vim.keymap.set("n", "<leader>X", ":Trouble diagnostics toggle focus=true<CR>",
+               {desc = "Show project diagnostics", silent = true})
+
+vim.keymap.set("n", "<leader>l", ":Trouble lsp toggle focus=true<CR>",
+               {desc = "Show LSP info", silent = true})
+
 vim.keymap.set({"n","v"}, "<leader>c", function() vim.lsp.buf.code_action() end,
                {desc = "Code action"})
 
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end,
                {desc = "Rename LSP"})
 
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end,
+vim.keymap.set("n", "gd", ":Trouble lsp_definitions focus=true<CR>",
                {desc = "Go to def LSP"})
 
-vim.keymap.set("n", "gD", function() vim.lsp.buf.type_definition() end,
+vim.keymap.set("n", "gD",  ":Trouble lsp_type_definitions focus=true<CR>",
                {desc = "Go to type def LSP"})
 
 vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end,
@@ -231,16 +225,12 @@ vim.keymap.set("n", "<leader>gD", ":DiffviewOpen<CR>",
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>",
                {desc = "Git preview hunk", silent = true})
 
-------------------------------
 -------------CMP--------------
-------------------------------
 
---load nvim-cmp_config.lua next, after all other plugins are done
+-- load nvim-cmp_config.lua next, after all other plugins are done
 require("nvim-cmp_config")
 
-------------------------------
 -------------LSP--------------
-------------------------------
 
 --set nerdfont signs for LSP related things
 vim.fn.sign_define("DiagnosticSignError",
@@ -253,7 +243,7 @@ vim.fn.sign_define("DiagnosticSignHint",
 {text = "󰌵", texthl = "DiagnosticSignHint"})
 
 --Must advertise capabilities to every LSP server
---Add autocopmlete capabilities
+--Add autocomplete capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --Add folding capabilities
 capabilities.textDocument.foldingRange = {
@@ -323,10 +313,5 @@ require("lspconfig").marksman.setup{
 
 --Python
 require("lspconfig").pylsp.setup{
-    capabilities = capabilities,
-}
-
---R
-require("lspconfig").r_language_server.setup{
     capabilities = capabilities,
 }

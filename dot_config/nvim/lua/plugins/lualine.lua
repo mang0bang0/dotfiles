@@ -1,11 +1,19 @@
 -- the following 4 functions sets up custom status lines for LSPSaga outline
 -- and Diffview
 local function outlineReturn ()
-    return "Outline"
+    return "OUTLINE"
 end
 
 local function diffviewReturn ()
-    return "Diffview Files"
+    return "DIFFVIEW FILES"
+end
+
+local function troubleReturn ()
+    return "TROUBLE"
+end
+
+local function oilReturn ()
+    return require("oil").get_current_dir()
 end
 
 local outline = {
@@ -32,6 +40,30 @@ local diffviewFiles = {
     }
 }
 
+local trouble = {
+    sections = {
+        lualine_a = {
+            troubleReturn
+        }
+    },
+
+    filetypes = {
+        "trouble",
+    }
+}
+
+local oil = {
+    sections = {
+        lualine_a = {
+            oilReturn
+        }
+    },
+
+    filetypes = {
+        "oil",
+    }
+}
+
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
@@ -45,6 +77,8 @@ return {
             "trouble",
             outline,
             diffviewFiles,
+            trouble,
+            oil
         },
 
         options = {

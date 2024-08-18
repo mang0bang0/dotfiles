@@ -27,7 +27,7 @@ return {
                 },
                 overrides = function(colors)
                     return {
-                        MiniTrailspace = {bg = colors.palette.samuraiRed}
+                        MiniTrailspace = {bg = colors.palette.peachRed}
                     }
                 end
             })

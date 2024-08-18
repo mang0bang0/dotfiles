@@ -1,36 +1,33 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-    end,
-
-    -- Keybinds aren't set in this plugin, because keybinds shouldn't
-    -- depend on a plugin being loaded to work, especially when this
-    -- plugin is lazy-loaded
-    config = function ()
-        require("which-key").setup({
-            plugins = {
-                presets = {
-                    operators = false,
-                    motions = false,
-                    text_objects = false,
-                }
+    opts = {
+        filter = function(mapping)
+            return mapping.desc and mapping.desc ~= ""
+        end,
+        plugins = {
+            spelling = {
+                suggestions = 5,
             },
-
-            disable = {
-                filetypes = {
-                    "lazy",
-                    "mason",
-                    "sagaoutline",
-                    "sagafinder",
-                    "neo-tree",
-                },
+            presets = {
+                operators = false,
+                motions = false,
+                text_objects = false,
             },
-        })
-
-        require("which-key").register({
-            g = {name = "Git"}}, {prefix = "<leader>"})
-    end,
+        },
+        triggers = {
+            {"<leader>", mode = {"n", "v"}},
+            {"z=", mode = {"n", "i"}}
+        },
+        icons = {
+            mappings = false,
+        },
+        disable = {
+            ft = {
+                "lazy",
+                "mason",
+                "neo-tree",
+            }
+        }
+    }
 }
