@@ -2,9 +2,6 @@ return {
     "declancm/cinnamon.nvim",
     config = function ()
         require("cinnamon").setup({
-            keymaps = {
-                basic = true,
-            },
             options = {
                 delay = 3,
                 max_delta = {
@@ -13,9 +10,12 @@ return {
             }
         })
 
+        vim.keymap.set("n", "<C-U>", function() require("cinnamon").scroll("<C-U>zz") end)
+        vim.keymap.set("n", "<C-D>", function() require("cinnamon").scroll("<C-D>zz") end)
+
         -- Disable scrolling for Oil buffers
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = "oil",
+            pattern = {"oil", "makrdown" },
             callback = function() vim.b.cinnamon_disable = true end,
         })
     end
