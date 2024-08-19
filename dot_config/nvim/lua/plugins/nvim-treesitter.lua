@@ -1,9 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    --uses a different string in require, so change main
+    -- uses a different string in require, so change main
     main = "nvim-treesitter.configs",
-
+    event = "VeryLazy",
     opts = {
         ensure_installed = {
             "arduino",
@@ -27,7 +27,7 @@ return {
 
         ignore_install = {"latex"},
 
-        --turns on highlighting
+        -- turns on highlighting
         highlight = {
             enable = true,
         },

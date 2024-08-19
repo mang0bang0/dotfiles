@@ -1,48 +1,9 @@
 --os.date("%H") returns the hour in 24 hour format
 local hour = tonumber(os.date("%H"))
 local day = (hour >= 6 and hour < 20)
-local afternoon = (hour >= 14 and hour < 20)
-local midnight = (hour >= 0 and hour < 6)
 
-return {
-    --note that tokyonight and kanagawa don't share the same color scheme
-    --configuration settings.
-    {
-        "rebelot/kanagawa.nvim",
-        enabled = true,
-        lazy = false,
-        priority = 1000,
-
-        config = function ()
-            require('kanagawa').setup({
-                functionStyle = {bold = true},
-                colors = {
-                    theme = {
-                        all = {
-                            ui = {
-                                bg_gutter = "none"
-                            }
-                        }
-                    }
-                },
-                overrides = function(colors)
-                    return {
-                        MiniTrailspace = {bg = colors.palette.peachRed}
-                    }
-                end
-            })
-
-            if not day then
-                if not midnight then
-                    vim.cmd.colorscheme("kanagawa-wave")
-                else
-                    vim.cmd.colorscheme("kanagawa-dragon")
-                end
-            end
-        end
-    },
-
-    {
+if day then
+    return {
         "folke/tokyonight.nvim",
         enabled = true,
         lazy = false,
@@ -103,12 +64,39 @@ return {
 
             --use tokyonight only between 06:00 and 19:59
             if day then
-                if not afternoon then
-                    vim.cmd.colorscheme("tokyonight-storm")
-                else
-                    vim.cmd.colorscheme("tokyonight-moon")
-                end
+                vim.cmd.colorscheme("tokyonight-storm")
             end
         end,
-    },
-}
+    }
+else
+    return {
+        "rebelot/kanagawa.nvim",
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+
+        config = function ()
+            require('kanagawa').setup({
+                functionStyle = {bold = true},
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none"
+                            }
+                        }
+                    }
+                },
+                overrides = function(colors)
+                    return {
+                        MiniTrailspace = {bg = colors.palette.peachRed}
+                    }
+                end
+            })
+
+            if not day then
+                vim.cmd.colorscheme("kanagawa-wave")
+            end
+        end
+    }
+end

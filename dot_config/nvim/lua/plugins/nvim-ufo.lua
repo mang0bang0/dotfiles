@@ -30,10 +30,11 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 return {
-    { "kevinhwang91/promise-async", },
+    { "kevinhwang91/promise-async", lazy = true},
 
     {
         "kevinhwang91/nvim-ufo",
+        event = "VeryLazy",
         dependencies = {
             "kevinhwang91/promise-async",
             "neovim/nvim-lspconfig",

@@ -15,7 +15,7 @@ return {
 
         -- Disable scrolling for Oil buffers
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = {"oil", "makrdown" },
+            pattern = {"oil", "markdown", "text", "tex", "txt", "help", "man" },
             callback = function() vim.b.cinnamon_disable = true end,
         })
     end

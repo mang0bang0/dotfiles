@@ -1,7 +1,6 @@
 -- TO DO:
--- 1. add space after comments
--- 2. split the file into several different ones
--- 3. check lazy load status of all plugins
+-- 1. split the file into several different ones
+-- 2. check lazy load status of all plugins
 
 -----------OPTIONS------------
 
@@ -232,7 +231,7 @@ require("nvim-cmp_config")
 
 -------------LSP--------------
 
---set nerdfont signs for LSP related things
+-- set nerdfont signs for LSP related things
 vim.fn.sign_define("DiagnosticSignError",
 {text = " ", texthl = "DiagnosticSignError"})
 vim.fn.sign_define("DiagnosticSignWarn",
@@ -242,10 +241,10 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
 {text = "󰌵", texthl = "DiagnosticSignHint"})
 
---Must advertise capabilities to every LSP server
---Add autocomplete capabilities
+-- Must advertise capabilities to every LSP server
+-- Add autocomplete capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
---Add folding capabilities
+-- Add folding capabilities
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
