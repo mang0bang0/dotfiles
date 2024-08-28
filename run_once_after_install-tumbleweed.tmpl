@@ -72,8 +72,6 @@ packages=(
 
 packagestring="${packages[*]}"
 
-echo "Installing packages!"
-
 sudo zypper in $packagestring
 
 # Remove pre-installed alacritty
@@ -83,8 +81,6 @@ sudo zypper rm alacritty
 # and it needs to be manually confirmed
 sudo zypper in protonmail-bridge.rpm
 rm protonmail-bridge.rpm
-
-echo "Package install finished!"
 
 ### Configuration
 
