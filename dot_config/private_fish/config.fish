@@ -18,6 +18,7 @@ if status is-interactive
     abbr --add update ~/.update.fish
     abbr --add lg lazygit
     abbr --add cm chezmoi
+    abbr --add cme chezmoi edit --apply
     abbr --add lk swaylock -c 222436
     abbr --add kb tmux new "sudo xremap /home/mango/.config/xremap.yml"
     #------------------#
