@@ -20,7 +20,7 @@ return {
                 "lua_ls",     --Lua
                 "texlab",     --Latex
                 "marksman",   --Markdown
-                "jsonls",
+                "codespell",
             },
         },
     },
