@@ -6,6 +6,8 @@
 # cd into ~/.ssh and grab key with ssh-keygen -K
 # Then SET THE HOSTNAME
 
+set -x
+
 # Move to home directory
 cd ~/
 
@@ -70,8 +72,6 @@ packages=(
 
 packagestring="${packages[*]}"
 
-echo "Installing packages!"
-
 sudo zypper in $packagestring
 
 # Remove pre-installed alacritty
@@ -81,8 +81,6 @@ sudo zypper rm alacritty
 # and it needs to be manually confirmed
 sudo zypper in protonmail-bridge.rpm
 rm protonmail-bridge.rpm
-
-echo "Package install finished!"
 
 ### Configuration
 
@@ -102,7 +100,5 @@ rm -r bin/
 sed -i '//home/mango/bin/d' /home/mango/.config/fish/fish_variables
 set -gx $fish_user_paths
 
-# Reboot
-systemctl reboot
-
+echo "Please reboot!"
 {{- end -}}
