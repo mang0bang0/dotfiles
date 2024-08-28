@@ -6,6 +6,8 @@
 # cd into ~/.ssh and grab key with ssh-keygen -K
 # Then SET THE HOSTNAME
 
+set -x
+
 # Move to home directory
 cd ~/
 
@@ -102,7 +104,5 @@ rm -r bin/
 sed -i '//home/mango/bin/d' /home/mango/.config/fish/fish_variables
 set -gx $fish_user_paths
 
-# Reboot
-systemctl reboot
-
+echo "Please reboot!"
 {{- end -}}
